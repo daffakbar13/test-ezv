@@ -2,5 +2,5 @@
 import { Product } from '@ezv/services/dummyjson/types'
 
 export type ProductActions = {
-  getProductByID(id: number): Product
+  getProductByID(id: number): Product | undefined
 }

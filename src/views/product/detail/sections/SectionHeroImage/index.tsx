@@ -10,15 +10,19 @@ export default function SectionHeroImage() {
   const product = getProductByID(Number(router.query.id as string))
 
   return (
-    <Box width="100%" height="50vh" position="relative">
-      <Image
-        src={product.thumbnail}
-        alt="Product Image"
-        fill
-        sizes="100%"
-        placeholder="blur"
-        blurDataURL={product.thumbnail}
-      />
-    </Box>
+    <>
+      {product && (
+        <Box width="100%" height="50vh" position="relative">
+          <Image
+            src={product.thumbnail}
+            alt="Product Image"
+            fill
+            sizes="100%"
+            placeholder="blur"
+            blurDataURL={product.thumbnail}
+          />
+        </Box>
+      )}
+    </>
   )
 }

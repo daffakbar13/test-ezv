@@ -9,24 +9,28 @@ export default function SectionProductInfo() {
   const product = getProductByID(Number(router.query.id as string))
 
   return (
-    <Grid container columns={2} gap={1} textAlign="start">
-      <Grid item xs={2} sm>
-        <Typography sx={{ fontWeight: 'bold' }}>
-          {product.title} - {product.brand}
-        </Typography>
-      </Grid>
-      <Grid item xs="auto">
-        <Typography>$ {product.price.toLocaleString()}</Typography>
-      </Grid>
-      <Grid item xs={2}>
-        <Typography>{product.description}</Typography>
-      </Grid>
-      <Grid item xs={2} sm>
-        <Chip label={product.category} />
-      </Grid>
-      <Grid item xs="auto">
-        <Rating value={product.rating} readOnly />
-      </Grid>
-    </Grid>
+    <>
+      {product && (
+        <Grid container columns={2} gap={1} textAlign="start">
+          <Grid item xs={2} sm>
+            <Typography sx={{ fontWeight: 'bold' }}>
+              {product.title} - {product.brand}
+            </Typography>
+          </Grid>
+          <Grid item xs="auto">
+            <Typography>$ {product.price.toLocaleString()}</Typography>
+          </Grid>
+          <Grid item xs={2}>
+            <Typography>{product.description}</Typography>
+          </Grid>
+          <Grid item xs={2} sm>
+            <Chip label={product.category} />
+          </Grid>
+          <Grid item xs="auto">
+            <Rating value={product.rating} readOnly />
+          </Grid>
+        </Grid>
+      )}
+    </>
   )
 }
